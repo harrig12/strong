@@ -4,7 +4,7 @@ library(hrbrthemes)
 
 process_file_upload <- function(fp)
   fp %>%
-  read_delim(delim = ";", trim_ws = TRUE,
+  read_delim(trim_ws = TRUE,
              escape_double = FALSE, na = "NA") %>%
   mutate(Weight = replace_na(Weight, 0)) %>%
   # subtract assisted pounds
