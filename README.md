@@ -1,2 +1,2 @@
 # strong
-shiny dashboard for fitness tracking
+shiny dashboard for fitness tracking :muscle:
