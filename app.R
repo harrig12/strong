@@ -76,10 +76,15 @@ ui <- dashboardPage(
 
 # Define server logic required to draw a histogram
 server <- function(input, output, session) {
-  
+
   df <- reactive({
-    req(input$fp)
+    #req(input$fp)
+    
+    if (is.null(input$fp)) {
+      df <- process_file_upload('./strong.csv')
+    } else {
     df <- process_file_upload(input$fp$datapath)
+    }
     updateSelectInput(session, "lift_sel","Best set over time for: ", choices = unique(df$`Exercise Name`))
     return(df)
   })
